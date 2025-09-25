@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             let errorMessage = 'Ocorreu um erro ao processar sua solicitação.';
             if (error.name === 'TypeError' && error.message.includes('fetch')) {
-                errorMessage = '🔌 Erro de conexão: Verifique se a API está rodando em http://localhost:8000';
+                errorMessage = '🔌 Erro de conexão: Verifique se a API está rodando no host correto';
                 isApiConnected = false;
             }
             

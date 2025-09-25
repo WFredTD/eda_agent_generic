@@ -122,7 +122,7 @@ async def chat_with_agent(
                 "response": response_data.get(
                     "text", "Gráfico gerado com sucesso."
                 ),  # Retorna texto ou um padrão
-                "image_url": f"http://localhost:8000/outputs/{chart_filename}",
+                "image_url": f"/outputs/{chart_filename}",
             }
 
         elif isinstance(response_data, dict) and response_data.get("response"):
@@ -182,6 +182,8 @@ async def read_root():
 
 # Servir arquivos estáticos (CSS, JS, imagens)
 app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
+app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
