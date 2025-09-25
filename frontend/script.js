@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Enviando requisição para API...');
             
             // Chama a API com o arquivo e a pergunta
-            const response = await fetch('http://localhost:8000/chat/', {
+            const response = await fetch('/chat/', {
                 method: 'POST',
                 body: formData,
             });
