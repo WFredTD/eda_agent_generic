@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Agente EDA</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Botão de menu no canto superior esquerdo -->
+        <button id="toggle-sidebar-btn" class="toggle-sidebar-btn" title="Menu">
+            <svg id="menu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg id="close-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <!-- Seletor de tema posicionado fora da sidebar -->
+        <div class="theme-switch-container">
+            <span class="theme-label">🌙</span>
+            <label class="theme-switch" for="theme-switch">
+                <input type="checkbox" id="theme-switch" />
+                <div class="slider"></div>
+            </label>
+            <span class="theme-label">☀️</span>
+        </div>
+
+        <aside class="sidebar" id="sidebar">
+            <header class="sidebar-header">
+                <h2>Chats</h2>
+                <button id="new-chat-btn" title="Novo Chat">+</button>
+            </header>
+            <nav class="chat-list" id="chat-list">
+                <!-- Lista de chats será adicionada dinamicamente -->
+            </nav>
+        </aside>
+
+        <main class="chat-main">
+            <div class="chat-messages" id="chat-messages">
+                <div class="welcome-message">
+                    <h1>Olá! Sou seu assistente de análise de dados.</h1>
+                    <p>Carregue um arquivo CSV e me faça uma pergunta para começar. Posso te ajudar a explorar os dados, gerar gráficos e tirar conclusões.</p>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <div class="file-drop-area" id="file-drop-area">
+                    <div class="file-drop-content">
+                        <div class="file-icon">📁</div>
+                        <p id="file-name-display">Arraste e solte seu arquivo CSV ou ZIP aqui, ou clique para selecionar.</p>
+                    </div>
+                    <input type="file" id="file-input" accept=".csv, .zip" hidden>
+                </div>
+                
+                <form id="chat-form" class="chat-form">
+                    <textarea id="user-input" placeholder="Pergunte sobre seus dados..." rows="1" required></textarea>
+                    <button type="submit" id="send-btn" title="Enviar">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12L19 12M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <!-- Modal para visualização de imagens -->
+        <div id="image-modal" class="image-modal">
+            <span class="modal-close" id="modal-close">&times;</span>
+            <img class="modal-content" id="modal-image" src="" alt="Gráfico em tela cheia">
+        </div>
+    </div>
+</body>
+</html>
